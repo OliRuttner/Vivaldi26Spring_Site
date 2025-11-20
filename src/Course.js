@@ -11,6 +11,7 @@ const Course = () => {
 
     return ( <div className="course">
         <div className="course-info">
+            <div className="text">
             <h2>{course.title}</h2>
             <p>Location: {course.location} <br /> Dates: {course.dates} </p>
                         <Link
@@ -19,6 +20,7 @@ const Course = () => {
                         >
                             Learn more!
                         </Link>
+        </div>
         </div>
         <img className="graz" src={require('./graz.jpg')} alt="Graz" />
     </div> );

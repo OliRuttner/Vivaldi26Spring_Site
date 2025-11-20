@@ -3,9 +3,9 @@ import Testimonials from "./Testimonials";
 
 const Home = () => {
     return ( <div className="home">
-        <h1>Check out the course you can attend in winter!</h1>
+        <h1>Check out the courses you can attend in spring!</h1>
         <Course />
-        {<Testimonials />}
+        <Testimonials />
     </div> );
 }
 export default Home;

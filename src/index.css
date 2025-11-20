@@ -1,10 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+:root{
+  --text: hsl(109, 61%, 14%);
+  --primary: #D75E60;
+  --bg-light: hsl(359, 100%, 90%);
+  --primary-dark: hsl(359, 51%, 49%);
+  --primary-mid: #D75E60;
+  --primary-shadow: #D55C5E;
+  --shadow-soft: hsla(0, 0%, 0%, 0.1);
+  --white: #ffffff;
+  --black: #000000;
+  --offscreen-bg: hsl(359, 18%, 16%);
+  --muted: #dddddd;
+}
 html, body {
   height: 100%;
   background: url('bg.png');
   background-size: 150px;
   background-repeat: repeat;
   scroll-behavior: smooth;
+  overscroll-behavior: none;
 }
 *{
   margin: 0 auto;
@@ -13,7 +27,12 @@ html, body {
   text-decoration: none;
   animation: fadeIn 0.5s ease-in-out;
   font-family: 'League Spartan', sans-serif;
-  color:hsl(232, 70%, 35%)
+  color: var(--text);
+}
+* .text{
+    background-color: rgba(255, 255, 255, 0.45); /* semi-transparent */
+    padding: 15px;
+    border-radius: 6px;
 }
 .home { 
   display: flex;
@@ -37,17 +56,18 @@ html, body {
   box-sizing: border-box;
   position: relative;
   bottom: 0;
+  background: transparent;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   gap: 15px;
 }
 .footer h3{
+  margin: 0;
   font-size: calc(0.5vw + 1rem);
   font-weight: bold;
 }
 .footer h2{
-  margin: 10px;
   font-weight: 800;
   font-size: calc(0.8vw + 1rem);
 }
@@ -67,8 +87,8 @@ html, body {
   height: auto;
   aspect-ratio: 1;
   border-radius: 50%;
-  border: #5864B0 solid 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: var(--primary) solid 5px;
+  box-shadow: 0 4px 8px var(--shadow-soft);
   object-fit: cover;
 }
 .navbar {
@@ -77,8 +97,8 @@ html, body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid #5864B0;
-  background-color: hsl(0, 0%, 90%);
+  border-bottom: 1px solid var(--primary);
+  background-color: var(--bg-light);
   box-sizing: border-box;
   z-index: 999;
 }
@@ -87,6 +107,7 @@ html, body {
   
   max-height: 80px;
 }
+
 .navbar .logo:first-child {
   zoom: 1.2;
 }
@@ -104,36 +125,43 @@ html, body {
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
-  background-color: #5864B0;
-  color: white;
+  background-color: var(--primary);
+  color: var(--white);
   font-size: calc(0.5vw + 0.75rem);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 .button:hover {
-  background-color: hsl(232, 36%, 32%);
+  background-color: var(--primary-dark);
 }
 .course{
+  transform: rotate(2deg);
   text-align: center;
   margin-top: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: hsl(0, 0%, 90%);
+  background: url('./blanket1.png');
+  background-size: 150px;
+  background-position: center;
+  background-repeat: repeat;
   border-radius: 10px;
   border: solid;
-  border-color: #5864B0;
-  box-shadow: 0 4px 8px hsl(232, 36%, 72%);
+  border-color: var(--primary);
+  box-shadow: 0 4px 8px var(--primary-shadow);
   padding: 10px 10px;
+}
+.course p{
+  font-weight: 550;
 }
 .slideshow-image{
   width: 600px;
   aspect-ratio: 4/3;
   object-fit: cover;
-  border: #5864B0 solid 5px;
+  border: var(--primary) solid 5px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--shadow-soft);
 }
 .course-details {
   background: url('bg.png');
@@ -199,9 +227,9 @@ html, body {
   width: 600px;
   height: auto;
   margin: 20px;
-  border: #5864B0 solid 5px;
+  border: var(--primary) solid 5px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--shadow-soft);
 }
 .mobile-menu{
   display: none;
@@ -211,38 +239,45 @@ html, body {
   height: auto;
   aspect-ratio: 1;
   border-radius: 50%;
-  border: #5864B0 solid 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: var(--primary) solid 5px;
+  box-shadow: 0 4px 8px var(--shadow-soft);
   object-fit: cover;
 }
 .testimonials-section h2{
-  margin: 20px;
+  max-width: fit-content;
   font-weight: 800;
   text-align: center;
   font-size: calc(1vw + 1.2rem);
 }
 .testimonials-section h4{
   padding: 10px;
-  color: #5864B0;
+  max-width: fit-content;
   font-weight: 600;
   text-align: center;
   font-size: calc(0.5vw + 1rem);
+}
+.testimonials-section{
+  padding-top: 50px;
 }
 .testimonial {
   gap: 10px;
   margin: 20px auto;
 }
 .testimonial-carousel {
+  transform: rotate(-2deg);
   position: relative;
-  border: #5864B0 solid 3px;
+  border: var(--primary) solid 3px;
   width: 100%;
   max-width: min(800px, 85vw);
   margin: auto;
   text-align: center;
-  background-color: hsl(0, 0%, 90%);
-  border-radius: 12px;
+  background: url('./blanket2.png');
+  background-size: 150px;
+  background-position: center;
+  background-repeat: repeat;
+  border-radius: 20px;
   padding: 20px 50px;
-  box-shadow: 0 4px 8px hsl(232, 36%, 72%);
+  box-shadow: 0 4px 8px var(--primary-shadow);
 }
 
 .testimonial p {
@@ -251,19 +286,19 @@ html, body {
   margin-bottom: 10px;
   text-align: justify;
   margin: 10px;
+  font-weight: 500;
 }
 
 .testimonial h4 {
   font-weight: bold;
-  color: #5864B0;
 }
 
 button.prev, button.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: hsl(232, 36%, 52%);
-  color: white;
+  background: var(--primary-mid);
+  color: var(--white);
   border: none;
   padding: 8px 14px;
   border-radius: 50%;
@@ -274,23 +309,32 @@ button.prev { left: 8px; }
 button.next { right: 8px; }
 
 button:hover {
-  background: hsl(232, 36%, 32%);
+  background: var(--primary-dark);
 }
-.testimonial-buttons .pause {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  background-color: #5864B0;
-  color: white;
-  font-size: calc(0.5vw + 0.75rem);
+/* Testimonials: progress bar and dots */
+.testimonial-dots{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+}
+.testimonial-dots .dot{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  background-color: var(--muted);
+  opacity: 0.85;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 150ms ease, background-color 150ms ease, opacity 150ms ease;
 }
-
-.testimonial-buttons .pause:hover {
-  background-color: hsl(232, 36%, 32%);
+.testimonial-dots .dot:hover{
+  opacity: 1;
 }
-
+.testimonial-dots .dot.active{
+  background-color: var(--primary);
+  transform: scale(1.15);
+}
 @media (max-width: 1200px) {
   * {
     margin: 0 auto;
@@ -337,8 +381,8 @@ button:hover {
   display: flex;
   width: 100%;
   justify-content: flex-start;
-  border-bottom: 1px solid #5864B0;
-  background-color: hsl(0, 0%, 90%);
+  border-bottom: 1px solid var(--primary);
+  background-color: var(--bg-light);
   box-sizing: border-box;
   z-index: 999;
   }
@@ -399,17 +443,17 @@ button:hover {
     position: relative;
     cursor: pointer;
     z-index: 1001;
-    background-color: hsl(0, 0%, 90%);
+    background-color: var(--bg-light);
     gap: 10px;
     border-radius: 10px;
     padding: 0 20px;
-    border: #5864B0 solid 4px;
+    border: var(--primary) solid 4px;
   }
 
   .ham-menu span {
     height: 5px;
     width: 80%;
-    background-color: black;
+    background-color: var(--black);
     position: absolute;
     left: 50%;
     top: 50%;
@@ -429,7 +473,7 @@ button:hover {
   .ham-menu.active span:nth-child(1) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
-    background-color: white
+    background-color: var(--white)
   }
 
   .ham-menu.active span:nth-child(2) {
@@ -439,11 +483,11 @@ button:hover {
   .ham-menu.active span:nth-child(3) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
-    background-color: white
+    background-color: var(--white)
   }
 
   .off-screen-menu {
-    background-color: rgb(34,37,49);
+    background-color: var(--offscreen-bg);
     height: 100dvh;
     width: 100%;
     max-width: 450px;
@@ -474,14 +518,14 @@ button:hover {
   }
 
   .off-screen-menu ul li a {
-    color: white;
+    color: var(--white);
     text-decoration: none;
     font-size: 1.2rem;
     transition: color 0.3s ease;
   }
 
   .off-screen-menu ul li a:hover {
-    color: #ddd;
+    color: var(--muted);
   }
 }
 
