@@ -1,9 +1,9 @@
 import Navbar from './NavBar';
 import Home from './Home';
-import FAQ from './FAQ';
 import CourseDetails from './CourseDetails';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Footer from './Footer';
+import Quiz from './Quiz';
 function App() {
   return (
     <Router>
@@ -13,10 +13,12 @@ function App() {
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/FAQ" exact>
-            <FAQ />
+          <Route path="/courses/:slug" exact>
+            <CourseDetails />
           </Route>
-          <Route path="/courses/:courseId" exact component={CourseDetails} />
+          <Route path="/quiz" exact>
+            <Quiz />
+          </Route>
           <Route path="*">
             <div className="not-found">
               <h1>404 - Not Found</h1>
